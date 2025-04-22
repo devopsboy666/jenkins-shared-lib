@@ -9,7 +9,7 @@ class CloneRepo implements Serializable {
     }
 
     def sayHello(String message) {
-        step.echo "Hello ${message}"
+        steps.echo "Hello ${message}"
     }
 
 }
