@@ -8,8 +8,7 @@ class CloneRepo implements Serializable {
 
     // Constructor 
     CloneRepo(Map args) {
-        if (!args.steps) throw new IllegalArgumentException("Missing required argument: steps")
-        this.steps = args.steps
+        this.steps = args.steps ?: this
         this.branch = args.branch ?: 'main'
         this.repoUrl = args.repoUrl ?: ''
 

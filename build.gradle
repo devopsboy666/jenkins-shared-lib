@@ -1,0 +1,18 @@
+plugins {
+    id 'groovy'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy-all:3.0.20'
+
+    // Jenkins Pipeline Unit Testing
+    testImplementation 'com.lesfurets:jenkins-pipeline-unit:1.15'
+
+    // JUnit for unit testing
+    testImplementation 'junit:junit:4.13.2'
+}
+
