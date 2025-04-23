@@ -25,7 +25,7 @@ class DeployApp implements Serializable {
 
     def helmDeploy() {
         try {
-            steps.sh "helm upgrade --install ${this.releaseName} ${this.pathHelm} . --set image.name=${this.imageName} --set image.tag=${this.imageTag}"
+            steps.sh "helm upgrade --install ${this.releaseName} ${this.pathHelm} --set image.name=${this.imageName} --set image.tag=${this.imageTag}"
         } catch (err) {
             steps.error("Fail Helm Deploy ${err.message}")
         }
