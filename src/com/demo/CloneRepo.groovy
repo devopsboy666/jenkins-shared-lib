@@ -22,7 +22,7 @@ class CloneRepo implements Serializable {
         try {
             steps.sh "git clone -b ${this.branch} ${this.repoUrl}"
         } catch (err) {
-            error("Git Clone Fail..")
+            steps.error("Git Clone Fail: ${err.message}")
         }
     }
 
