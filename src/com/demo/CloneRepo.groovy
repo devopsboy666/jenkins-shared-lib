@@ -18,7 +18,7 @@ class CloneRepo implements Serializable {
         }
     }
 
-    gitCloneRepo() {
+    def gitCloneRepo() {
         try {
             steps.sh "git clone -b ${this.branch} ${this.repoUrl}"
         } catch (err) {
