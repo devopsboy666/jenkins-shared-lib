@@ -31,24 +31,10 @@ class DeployAppTest extends BasePipelineTest {
         ])
         build.helmDeploy() 
 
-        assertTrue(mockShCalls[0].contains("helm install demo helmpath . --set image.name=localhost/nameImage --set image.tag=tag0"))
+        assertTrue(mockShCalls[0].contains("helm upgrade --install demo helmpath . --set image.name=localhost/nameImage --set image.tag=tag0"))
 
     }
 
-    @Test
-    void testUpgradeAppSuccess() {
-        def build = new DeployApp([
-            steps: this.binding,
-            releaseName: "demo",
-            imageName: "nameImage",
-            imageTag: "tag0",
-            pathHelm: "helmpath"
-        ])
-        build.helmUpgrade() 
-
-        assertTrue(mockShCalls[0].contains("helm upgrade demo helmpath . --set image.name=localhost/nameImage --set image.tag=tag0"))
-
-    }
 
     @Test(expected = RuntimeException.class)
     void testMissingDeploy() {
